@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">CollectionsOperationsTime</string>
+    <string name="bt_evaluate_hint">Evaluate</string>
+    <string name="et_collection_size_hint">Collections size</string>
+    <string name="et_map_size_hint">Maps size</string>
+    <string name="fragment_title_collections">Collections</string>
+    <string name="fragment_title_maps">Maps</string>
+    <string name="tv_filling_hint">time (ms)</string>
+    <string name="tv_row_object_hint">Object</string>
+    <string name="tv_column_arraylist_hint">ArrayList</string>
+    <string name="tv_column_linkedlist_hint">LinkedList</string>
+    <string name="tv_column_cowarraylist_hint">cowArrayList</string>
+    <string name="tv_row_fillintime_hint">Fill In Time</string>
+    <string name="tv_row_add_in_the_beginning_hint">Add in beginning</string>
+    <string name="tv_row_in_the_middle_hint">Add in middle</string>
+    <string name="tv_row_in_the_end_hint">Add in end</string>
+    <string name="tv_row_search_by_value_hint">Search by value</string>
+    <string name="tv_row_remove_from_the_beginning_hint">Remove from beginning</string>
+    <string name="tv_row_remove_from_the_middle_hint">Remove from middle</string>
+    <string name="tv_row_remove_from_the_end_hint">Remove from end</string>
+    <string name="tv_column_hash_map_hint">HashMap</string>
+    <string name="tv_column_tree_map_hint">TreeMap</string>
+    <string name="tv_row_add_new_hint">Add New</string>
+    <string name="tv_row_search_by_key_hint">Search by key</string>
+    <string name="tv_row_removing_hint">Removing</string>
+</resources>

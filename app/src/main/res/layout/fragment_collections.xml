@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".presentation.collections.FragmentCollections">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/etCollectionsSizeHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/et_collection_size_hint"
+            app:layout_constraintBottom_toTopOf="@+id/etCollectionsSize"
+            app:layout_constraintStart_toStartOf="@+id/etCollectionsSize" />
+
+        <EditText
+            android:id="@+id/etCollectionsSize"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:autofillHints="no"
+            android:inputType="numberDecimal"
+            app:layout_constraintEnd_toStartOf="@+id/btEvaluate"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btEvaluate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="@string/bt_evaluate_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/tvRowCollectionsObject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/tv_row_object_hint"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvColumnArrayList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/tv_column_arraylist_hint"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvColumnLinkedList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/tv_column_linkedlist_hint"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvColumnCowArrayList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/tv_column_cowarraylist_hint"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="12sp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/tvRowCollectionsFillInTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/pb_height"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.5"
+                    android:gravity="center_vertical"
+                    android:text="@string/tv_row_fillintime_hint"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvArrayListCreate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbArrayListCreate"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvLinkedListCreate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbLinkedListCreate"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvCopyOnWriteArrayListCreate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbCopyOnWriteArrayListCreate"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/tvRowCollectionsAddInBeginning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/pb_height"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.5"
+                    android:gravity="center_vertical"
+                    android:text="@string/tv_row_add_in_the_beginning_hint"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvArrayListAddInTheBeginning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbArrayListAddToBeginning"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvLinkedListAddInTheBeginning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbLinkedListAddToBeginning"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvCopyOnWriteArrayListAddInTheBeginning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbCopyOnWriteArrayListAddToBeginning"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/tvRowCollectionsAddInMiddle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/pb_height"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.5"
+                    android:gravity="center_vertical"
+                    android:text="@string/tv_row_in_the_middle_hint"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvArrayListAddInTheMiddle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbArrayListAddInTheMiddle"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvLinkedListAddInTheMiddle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbLinkedListAddInTheMiddle"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvCopyOnWriteArrayListAddInTheMiddle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbCopyOnWriteArrayListAddInTheMiddle"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/tvRowCollectionsAddInEnd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/pb_height"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.5"
+                    android:gravity="center_vertical"
+                    android:text="@string/tv_row_in_the_end_hint"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvArrayListAddInTheEnd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbArrayListAddInTheEnd"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvLinkedListAddInTheEnd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbLinkedListAddInTheEnd"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvCopyOnWriteArrayListAddInTheEnd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbCopyOnWriteArrayListAddInTheEnd"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/tvRowCollectionsSearchByValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/pb_height"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.5"
+                    android:gravity="center_vertical"
+                    android:text="@string/tv_row_search_by_value_hint"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvArrayListSearchByValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbArrayListSearchByValue"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvLinkedListSearchByValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbLinkedListSearchByValue"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvCopyOnWriteArrayListSearchByValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbCopyOnWriteArrayListSearchByValue"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/tvRowCollectionsRemoveFromBeginning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/pb_height"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.5"
+                    android:gravity="center_vertical"
+                    android:text="@string/tv_row_remove_from_the_beginning_hint"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvArrayListRemoveFromTheBeginning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbArrayListRemoveFromTheBeginning"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvLinkedListRemoveFromTheBeginning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbLinkedListRemoveFromTheBeginning"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvCopyOnWriteArrayListRemoveFromTheBeginning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbCopyOnWriteArrayListRemoveFromTheBeginning"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/tvRowCollectionsRemoveFromMiddle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/pb_height"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.5"
+                    android:gravity="center_vertical"
+                    android:text="@string/tv_row_remove_from_the_middle_hint"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvArrayListRemoveFromTheMiddle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbArrayListRemoveFromTheMiddle"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvLinkedListRemoveFromTheMiddle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbLinkedListRemoveFromTheMiddle"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvCopyOnWriteArrayListRemoveFromTheMiddle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbCopyOnWriteArrayListRemoveFromTheMiddle"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/tvRowCollectionsRemoveFromEnd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/pb_height"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.5"
+                    android:gravity="center_vertical"
+                    android:text="@string/tv_row_remove_from_the_end_hint"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvArrayListRemoveFromTheEnd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbArrayListRemoveFromTheEnd"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvLinkedListRemoveFromTheEnd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbLinkedListRemoveFromTheEnd"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvCopyOnWriteArrayListRemoveFromTheEnd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbCopyOnWriteArrayListRemoveFromTheEnd"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+</LinearLayout>

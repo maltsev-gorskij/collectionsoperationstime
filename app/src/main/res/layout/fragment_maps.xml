@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".presentation.maps.FragmentMaps">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/etMapsSizeHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/et_map_size_hint"
+            app:layout_constraintBottom_toTopOf="@+id/etMapsSize"
+            app:layout_constraintStart_toStartOf="@+id/etMapsSize" />
+
+        <EditText
+            android:id="@+id/etMapsSize"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:autofillHints="no"
+            android:inputType="numberDecimal"
+            app:layout_constraintEnd_toStartOf="@+id/btEvaluate"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btEvaluate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="@string/bt_evaluate_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/tvRowMapsObject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/tv_row_object_hint"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvColumnHashMap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/tv_column_hash_map_hint"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvColumnTreeMap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/tv_column_tree_map_hint"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="12sp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/tvRowMapsFillInTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.5"
+                    android:gravity="center_vertical"
+                    android:text="@string/tv_row_fillintime_hint"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvHashMapCreate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbHashMapCreate"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvTreeMapCreate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbTreeMapCreate"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/tvRowMapsAddNew"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.5"
+                    android:gravity="center_vertical"
+                    android:text="@string/tv_row_add_new_hint"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvHashMapAddNew"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbHashMapAddNew"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvTreeMapAddNew"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbTreeMapAddNew"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/tvRowMapsSearchByKey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.5"
+                    android:gravity="center_vertical"
+                    android:text="@string/tv_row_search_by_key_hint"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvHashMapSearchByKey"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbHashMapSearchByKey"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvTreeMapSearchByKey"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbTreeMapSearchByKey"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/tvRowMapsRemoving"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.5"
+                    android:gravity="center_vertical"
+                    android:text="@string/tv_row_removing_hint"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvHashMapRemoving"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbHashMapRemoving"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvTreeMapRemoving"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="@string/tv_filling_hint"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbTreeMapRemoving"
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pb_height"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+
+</LinearLayout>
